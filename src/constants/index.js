@@ -4,7 +4,7 @@ export const navigation = [
   {
     id: "0",
     title: "Meet the Team",
-    url: "#terminal",
+    url: "https://github.com/madame-president/mempool-terminal",
     logo: github,
   },
 ];

@@ -30,20 +30,20 @@ const Content = ({ title, text, download, imageUrl1, imageUrl2, logo }) => {
         {download && (
           <ul className="flex items-center justify-center ">
             <li
-              className={`rounded-2xl flex items-center justify-center w-[10rem] h-[3rem] p-0.25 bg-conic-gradient md:w-[12rem] md:h-[3.5rem] hover: transition duration-300 transform hover:translate-y-[-4px]`}
+              className={`rounded-2xl flex items-center justify-center w-[11rem] h-[3rem] p-0.25 bg-conic-gradient md:w-[12rem] md:h-[3.5rem] hover: transition duration-300 transform hover:translate-y-[-4px]`}
             >
               <div
                 className={`flex items-center justify-center w-full h-full bg-n-7  px-5 py-2 rounded-[1rem] hover:cursor-pointer`}
               >
                 <img
-                  className=" mr-2 hidden md:flex"
+                  className=" mr-2 "
                   src={windows}
                   width={32}
                   height={32}
                   alt="Windows"
                 />
                 <button onClick={handleDownload}>
-                  <p className="caption text-n-3 text-center hover:text-n-4 transition-colors duration-200 text-gradient md:text-left">
+                  <p className="caption text-n-3 text-left hover:text-n-4 transition-colors duration-200 text-gradient md:text-left">
                     Download for Windows
                   </p>
                 </button>
