@@ -227,7 +227,7 @@ This command fetches the latest changes from the remote repository and merges th
   Type the following command:
 
 ```bash
-git add.
+git add .
 ```
 
 This command adds all the modified files in your working directory to the staging area.
