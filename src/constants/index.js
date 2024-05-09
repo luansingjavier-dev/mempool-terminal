@@ -3,7 +3,7 @@ import { logo, github, terminal, excel, fdTerminal } from "./images";
 export const navigation = [
   {
     id: "0",
-    title: "Meet the Team",
+    title: "Repository",
     url: "https://github.com/madame-president/mempool-terminal",
     logo: github,
   },
@@ -12,8 +12,8 @@ export const navigation = [
 export const mempool = [
   {
     id: "0",
-    title: "Verified Bitcoin wallet statements blazingly fast",
-    text: `Comprehensive wallet "financial" statements for Bitcoin companies seeking loans, capital investment, or IPO readiness.`,
+    title: "Bitcoin wallet statements following CPAB standards",
+    text: `Confirmed the existence and completeness of Bitcoin transaction data for audit purposes.`,
     download: true,
     imageUrl1: terminal,
     imageUrl2: excel,
@@ -22,7 +22,7 @@ export const mempool = [
   {
     id: "1",
     title:
-      "Developing an open-source approach to providing historical Bitcoin wallet data",
+      "Designed to follow the audit requirements expressed by CPAB",
     text: "",
     download: false,
     imageUrl1: fdTerminal,
@@ -33,37 +33,31 @@ export const info = [
   {
     id: "1",
     content:
-      "Empower yourself with absolute control over your data, its storage, access, and sharing.",
-    title: "Own your data. Truly.",
+      "You speak finance, they speak technical. We understand both.",
+    title: "Inadequate understanding of audit risks when they design their audit approaches.",
   },
   {
     id: "2",
     content:
-      "Safeguard your privacy and protect your data by eliminating reliance on cloud services.",
-    title: "Privacy. Uncompromised.",
+      "Get your data from the bitcoin network directly. Compare them side by side.",
+    title: "Relied on information obtained by exchanges or custodians without evaluating reliability.",
   },
   {
     id: "3",
     content:
-      "Personalize your self-hosted environment with apps that match your needs - file servers, ad blockers, Bitcoin node, and more.",
-    title: "Tailored to you. By you.",
+      "Create a transaction, and sign it. Using the txid we will retrieve your message.",
+    title: "Insufficient evidence to support the entities' ownership to those assets.",
   },
   {
     id: "4",
     content:
-      "Liberate yourself from the cloud, and save on recurring cloud-based subscription costs.",
-    title: "Break free & save.",
+      "Pool mining or solo mining. Either way, we provide a detailed report containing block rewards by quantity and date received.",
+    title: "Lack of understanding of entities involved in mining activities.",
   },
   {
     id: "5",
     content:
-      "Get lightning-fast data access & seamless services, optimized for your individual self-hosted experience.",
-    title: "Accelerated performance.",
-  },
-  {
-    id: "6",
-    content:
-      "Your home server safeguards your data, even when cloud-based companies face storms and shut down.",
-    title: "Rainy day resilience.",
+      "The bitcoin network is the most powerful computer network on earth. We understand the bitcoin ledger (at its current network security) cannot be hacked or tampered with.",
+    title: "Lack of evaluating reliability of information obtained from blockchains.",
   },
 ];
