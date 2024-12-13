@@ -24,7 +24,7 @@ const Sidebar = () => {
 
   return (
     <div className="hidden w-1/4 p-4 lg:flex">
-      <div className="fixed left-0 h-full w-1/4 pl-10 pt-4">
+      <div className="fixed left-0 h-full w-1/4 pl-20 pt-4 lg:pl-15 md:pl-20 xl:pl-20">
         <ul className="space-y-3">
           {navItems.map((item, index) => (
             <li
