@@ -74,6 +74,12 @@ export default {
         ".h4": {
           "@apply text-[2rem] leading-normal": {},
         },
+        ".h3": {
+          "@apply text-[1.1rem] leading-normal": {},
+        },
+        ".h2": {
+          "@apply text-[1.3rem] leading-normal": {},
+        },
         ".body": {
           "@apply font-light text-[0.875rem] leading-6 md:text-base": {},
         },

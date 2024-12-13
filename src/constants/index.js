@@ -21,8 +21,7 @@ export const mempool = [
   },
   {
     id: "1",
-    title:
-      "Designed to follow the audit requirements expressed by CPAB",
+    title: "Designed to follow the audit requirements expressed by CPAB",
     text: "",
     download: false,
     imageUrl1: fdTerminal,
@@ -32,21 +31,23 @@ export const mempool = [
 export const info = [
   {
     id: "1",
-    content:
-      "You speak finance, they speak technical. We understand both.",
-    title: "Inadequate understanding of audit risks when they design their audit approaches.",
+    content: "You speak finance, they speak technical. We understand both.",
+    title:
+      "Inadequate understanding of audit risks when they design their audit approaches.",
   },
   {
     id: "2",
     content:
       "Get your data from the bitcoin network directly. Compare them side by side.",
-    title: "Relied on information obtained by exchanges or custodians without evaluating reliability.",
+    title:
+      "Relied on information obtained by exchanges or custodians without evaluating reliability.",
   },
   {
     id: "3",
     content:
       "Create a transaction, and sign it. Using the txid we will retrieve your message.",
-    title: "Insufficient evidence to support the entities' ownership to those assets.",
+    title:
+      "Insufficient evidence to support the entities' ownership to those assets.",
   },
   {
     id: "4",
@@ -58,6 +59,34 @@ export const info = [
     id: "5",
     content:
       "The bitcoin network is the most powerful computer network on earth. We understand the bitcoin ledger (at its current network security) cannot be hacked or tampered with.",
-    title: "Lack of evaluating reliability of information obtained from blockchains.",
+    title:
+      "Lack of evaluating reliability of information obtained from blockchains.",
+  },
+];
+
+export const navItems = [
+  {
+    title: "What is Mempool API Terminal?",
+    link: "#what-is-mempool-api-terminal",
+  },
+  {
+    title: "Key Features",
+    link: "#key-features",
+  },
+  {
+    title: "Platform Architecture",
+    link: "#platform-architecture",
+  },
+  {
+    title: "Platform Components",
+    link: "#platform-components",
+  },
+  {
+    title: "Available Networks",
+    link: "#available-networks",
+  },
+  {
+    title: "Ready to Get Started?",
+    link: "#get-started",
   },
 ];
