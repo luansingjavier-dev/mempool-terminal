@@ -21,6 +21,10 @@ import {
   git15,
   git16,
   git17,
+  clone1,
+  clone2,
+  clone3,
+  clone4,
 } from "../constants/images";
 
 const GetStarted = () => (
@@ -34,7 +38,7 @@ const GetStarted = () => (
         the box that says "ADD to file path")
         <img
           src={python1}
-          alt="Third Image"
+          alt=""
           className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
         />
       </li>
@@ -42,7 +46,7 @@ const GetStarted = () => (
         Select the Install Now option for the recommended installation
         <img
           src={python2}
-          alt="Third Image"
+          alt=""
           className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
         />
       </li>
@@ -51,7 +55,7 @@ const GetStarted = () => (
         will allow Python to bypass the 260-character MAX_PATH limit.{" "}
         <img
           src={python5}
-          alt="Third Image"
+          alt=""
           className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
         />
         The option will not affect any other system settings, and disabling it
@@ -64,7 +68,7 @@ const GetStarted = () => (
         command:
         <img
           src={python6}
-          alt="Third Image"
+          alt=""
           className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
         />
         The output shows the installed Python version.
@@ -73,7 +77,7 @@ const GetStarted = () => (
         Install Git
         <img
           src={git1}
-          alt="Third Image"
+          alt=""
           className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
         />
         Review the GNU General Public License, and when you are ready to
@@ -84,7 +88,7 @@ const GetStarted = () => (
         default one unless you want to change it, and click Next.
         <img
           src={git2}
-          alt="Third Image"
+          alt=""
           className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
         />
       </li>
@@ -93,7 +97,7 @@ const GetStarted = () => (
         <p> unless you need to change them and click Next.</p>
         <img
           src={git3}
-          alt="Third Image"
+          alt=""
           className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
         />
       </li>
@@ -102,7 +106,7 @@ const GetStarted = () => (
         <p>Click Next to accept and proceed to the next step.</p>
         <img
           src={git4}
-          alt="Third Image"
+          alt=""
           className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
         />
       </li>
@@ -114,7 +118,7 @@ const GetStarted = () => (
         </p>
         <img
           src={git5}
-          alt="Third Image"
+          alt=""
           className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
         />
       </li>
@@ -127,7 +131,7 @@ const GetStarted = () => (
         </p>
         <img
           src={git6}
-          alt="Third Image"
+          alt=""
           className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
         />
       </li>
@@ -140,7 +144,7 @@ const GetStarted = () => (
         Keep the middle (recommended) selection and click Next.
         <img
           src={git7}
-          alt="Third Image"
+          alt=""
           className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
         />
       </li>
@@ -153,7 +157,7 @@ const GetStarted = () => (
         leave the default option and click Next.
         <img
           src={git8}
-          alt="Third Image"
+          alt=""
           className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
         />
       </li>
@@ -167,7 +171,7 @@ const GetStarted = () => (
         </p>
         <img
           src={git9}
-          alt="Third Image"
+          alt=""
           className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
         />
       </li>
@@ -177,7 +181,7 @@ const GetStarted = () => (
         is recommended for Windows. Click Next to proceed.
         <img
           src={git10}
-          alt="Third Image"
+          alt=""
           className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
         />
       </li>
@@ -189,7 +193,7 @@ const GetStarted = () => (
         </p>
         <img
           src={git11}
-          alt="Third Image"
+          alt=""
           className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
         />
       </li>
@@ -202,7 +206,7 @@ const GetStarted = () => (
         Click Next to continue with the installation.
         <img
           src={git12}
-          alt="Third Image"
+          alt=""
           className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
         />
       </li>
@@ -215,7 +219,7 @@ const GetStarted = () => (
         Select your preferred credential manager and click Next.
         <img
           src={git13}
-          alt="Third Image"
+          alt=""
           className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
         />
       </li>
@@ -228,7 +232,7 @@ const GetStarted = () => (
         Keep file system caching checked and click Next.
         <img
           src={git14}
-          alt="Third Image"
+          alt=""
           className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
         />
       </li>
@@ -247,7 +251,7 @@ const GetStarted = () => (
         </p>
         <img
           src={git15}
-          alt="Third Image"
+          alt=""
           className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
         />
       </li>
@@ -260,7 +264,7 @@ const GetStarted = () => (
         </p>
         <img
           src={git16}
-          alt="Third Image"
+          alt=""
           className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
         />
       </li>
@@ -269,13 +273,18 @@ const GetStarted = () => (
         <p>open the PowerShell and run the following command:</p>
         <img
           src={git17}
-          alt="Third Image"
+          alt=""
           className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
         />
         The output shows which Git version is installed on the system.
       </li>
       <li className="font-normal text-[16px] text-n-4 my-5">
         Clone repo{" "}
+        <img
+          src={clone1}
+          alt=""
+          className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
+        />
         <a
           href="https://github.com/madame-president/mempool-api-terminal"
           className="text-gradient"
@@ -284,7 +293,31 @@ const GetStarted = () => (
         </a>
       </li>
       <li className="font-normal text-[16px] text-n-4 my-5">
+        This creates a folder named after the repository and downloads all files
+        and history to your local machine.
+        <img
+          src={clone2}
+          alt=""
+          className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
+        />
+      </li>
+      <li className="font-normal text-[16px] text-n-4 my-5">
         Install dependencies pip install -r requirements.txt
+        <img
+          src={clone3}
+          alt=""
+          className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
+        />
+        This command installs all the libraries and tools specified in
+        requirements.txt.
+      </li>
+      <li className="font-normal text-[16px] text-n-4 my-5">
+        Run the program python run.py
+        <img
+          src={clone4}
+          alt=""
+          className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
+        />
       </li>
     </ul>
   </section>

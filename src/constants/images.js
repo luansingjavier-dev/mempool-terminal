@@ -65,6 +65,11 @@ import git15 from "../assets/images/git15.png";
 import git16 from "../assets/images/git16.png";
 import git17 from "../assets/images/git17.png";
 
+import clone1 from "../assets/images/clone1.png";
+import clone2 from "../assets/images/clone2.png";
+import clone3 from "../assets/images/clone3.png";
+import clone4 from "../assets/images/clone4.png";
+
 export {
   logo,
   main,
@@ -124,4 +129,8 @@ export {
   git15,
   git16,
   git17,
+  clone1,
+  clone2,
+  clone3,
+  clone4,
 };
