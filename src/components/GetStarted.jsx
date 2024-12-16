@@ -1,326 +1,258 @@
-import React from "react";
+import React, { useState } from "react";
 import {
-  python1,
-  python6,
-  python5,
-  python2,
-  git1,
-  git2,
-  git3,
-  git4,
-  git5,
-  git6,
-  git7,
-  git8,
-  git9,
-  git10,
-  git11,
-  git12,
-  git13,
-  git14,
-  git15,
-  git16,
-  git17,
-  clone1,
-  clone2,
-  clone3,
-  clone4,
+  install_python,
+  install_git,
+  install_github_cli,
+  check_python_version,
+  check_git_version,
+  clone_repo,
+  clone_from_terminal,
+  install_dependencies,
+  running,
 } from "../constants/images";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { FiCopy, FiCheck } from "react-icons/fi";
+import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-const GetStarted = () => (
-  <section id="get-started" className="mb-6 scroll-mt-32">
-    <h2 className="h2 flex items-center text-center justify-between text-gradient mb-4 hover: transition duration-300 transform hover:translate-y-[-4px]">
-      Ready to Get Started?
-    </h2>
-    <ul className="list-disc pl-6 mt-2 space-y-2">
-      <li className="font-normal text-[16px] text-n-4 my-5">
-        Install Python (make sure that when you take the screenshot you click on
-        the box that says "ADD to file path")
-        <img
-          src={python1}
-          alt=""
-          className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
-        />
-      </li>
-      <li className="font-normal text-[16px] text-n-4 my-5">
-        Select the Install Now option for the recommended installation
-        <img
-          src={python2}
-          alt=""
-          className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
-        />
-      </li>
-      <li className="font-normal text-[16px] text-n-4 my-5">
-        Select whether to disable the path length limit. Choosing this option
-        will allow Python to bypass the 260-character MAX_PATH limit.{" "}
-        <img
-          src={python5}
-          alt=""
-          className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
-        />
-        The option will not affect any other system settings, and disabling it
-        resolves potential name-length issues. We recommend selecting the option
-        and closing the setup.
-      </li>
-      <li className="font-normal text-[16px] text-n-4 my-5">
-        The first way to verify that Python was installed successfully is
-        through the command line. Open the command prompt and run the following
-        command:
-        <img
-          src={python6}
-          alt=""
-          className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
-        />
-        The output shows the installed Python version.
-      </li>
-      <li className="font-normal text-[16px] text-n-4 my-5">
-        Install Git
-        <img
-          src={git1}
-          alt=""
-          className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
-        />
-        Review the GNU General Public License, and when you are ready to
-        install, click Next.
-      </li>
-      <li className="font-normal text-[16px] text-n-4 my-5">
-        The installer prompts you for an installation location. Leave the
-        default one unless you want to change it, and click Next.
-        <img
-          src={git2}
-          alt=""
-          className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
-        />
-      </li>
-      <li className="font-normal text-[16px] text-n-4 my-5">
-        In the component selection screen, leave the defaults
-        <p> unless you need to change them and click Next.</p>
-        <img
-          src={git3}
-          alt=""
-          className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
-        />
-      </li>
-      <li className="font-normal text-[16px] text-n-4 my-5">
-        The installer offers to create a start menu folder.{" "}
-        <p>Click Next to accept and proceed to the next step.</p>
-        <img
-          src={git4}
-          alt=""
-          className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
-        />
-      </li>
-      <li className="font-normal text-[16px] text-n-4 my-5">
-        Select a text editor you want to use with Git.{" "}
-        <p>
-          Use the drop-down menu to select Notepad++ (or whichever text editor
-          you prefer) and click Next.
-        </p>
-        <img
-          src={git5}
-          alt=""
-          className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
-        />
-      </li>
-      <li className="font-normal text-[16px] text-n-4 my-5">
-        The next step allows you to choose a different name for your initial
-        branch.
-        <p>
-          The default is master. Unless you are working in a team that requires
-          a different name, leave the default option and click Next.
-        </p>
-        <img
-          src={git6}
-          alt=""
-          className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
-        />
-      </li>
-      <li className="font-normal text-[16px] text-n-4 my-5">
-        The next step allows you to change the PATH environment.{" "}
-        <p>
-          The PATH is the default set of directories included when you run a
-          command from the command line.
-        </p>{" "}
-        Keep the middle (recommended) selection and click Next.
-        <img
-          src={git7}
-          alt=""
-          className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
-        />
-      </li>
-      <li className="font-normal text-[16px] text-n-4 my-5">
-        The installer prompts you to select the SSH client for Git to use.{" "}
-        <p>
-          Git already comes with its own SSH client, so if you don't need a
-          specific one,{" "}
-        </p>
-        leave the default option and click Next.
-        <img
-          src={git8}
-          alt=""
-          className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
-        />
-      </li>
-      <li className="font-normal text-[16px] text-n-4 my-5">
-        The next option relates to server certificates.{" "}
-        <p>The default option is recommended for most users.</p> If you work in
-        an Active Directory environment,{" "}
-        <p>
-          you may need to switch to Windows Store certificates. Select your
-          preferred option and click Next.
-        </p>
-        <img
-          src={git9}
-          alt=""
-          className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
-        />
-      </li>
-      <li className="font-normal text-[16px] text-n-4 my-5">
-        The following selection configures line-ending conversion,{" "}
-        <p>which relates to the way data is formatted. </p>The default selection
-        is recommended for Windows. Click Next to proceed.
-        <img
-          src={git10}
-          alt=""
-          className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
-        />
-      </li>
-      <li className="font-normal text-[16px] text-n-4 my-5">
-        Choose the terminal emulator you want to use.{" "}
-        <p>
-          The default MinTTY is recommended for its features. Click Next to
-          continue.
-        </p>
-        <img
-          src={git11}
-          alt=""
-          className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
-        />
-      </li>
-      <li className="font-normal text-[16px] text-n-4 my-5">
-        The next step allows you to choose what the git pull command will do.
-        <p>
-          The default option is recommended unless you specifically need to
-          change its behavior.
-        </p>{" "}
-        Click Next to continue with the installation.
-        <img
-          src={git12}
-          alt=""
-          className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
-        />
-      </li>
-      <li className="font-normal text-[16px] text-n-4 my-5">
-        The next step is to choose which credential helper to use.{" "}
-        <p>
-          Git uses credential helpers to fetch or save credentials. The default
-          option is the most stable one.
-        </p>{" "}
-        Select your preferred credential manager and click Next.
-        <img
-          src={git13}
-          alt=""
-          className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
-        />
-      </li>
-      <li className="font-normal text-[16px] text-n-4 my-5">
-        The next step lets you decide which extra options to enable. I
-        <p>
-          f you use symbolic links, which represent shortcuts for the command
-          line, tick the box.
-        </p>{" "}
-        Keep file system caching checked and click Next.
-        <img
-          src={git14}
-          alt=""
-          className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
-        />
-      </li>
-      <li className="font-normal text-[16px] text-n-4 my-5">
-        Depending on which Git version you are installing,
-        <p>
-          {" "}
-          it may offer to install experimental features. At the time this
-          article was written,
-        </p>{" "}
-        the installer offered options to include support for pseudo controls and
-        a built-in file system monitor.{" "}
-        <p>
-          For the most stable operation, do not install experimental features
-          and click Install.
-        </p>
-        <img
-          src={git15}
-          alt=""
-          className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
-        />
-      </li>
-      <li className="font-normal text-[16px] text-n-4 my-5">
-        Once the installation is complete, tick the boxes to view the Release
-        Notes{" "}
-        <p>
-          or launch Git Bash if you want to start using Git right away, and
-          click Finish.
-        </p>
-        <img
-          src={git16}
-          alt=""
-          className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
-        />
-      </li>
-      <li className="font-normal text-[16px] text-n-4 my-5">
-        To check which Git version is installed on your system,{" "}
-        <p>open the PowerShell and run the following command:</p>
-        <img
-          src={git17}
-          alt=""
-          className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
-        />
-        The output shows which Git version is installed on the system.
-      </li>
-      <li className="font-normal text-[16px] text-n-4 my-5">
-        Clone repo{" "}
-        <img
-          src={clone1}
-          alt=""
-          className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
-        />
-        <a
-          href="https://github.com/madame-president/mempool-api-terminal"
-          className="text-gradient"
-        >
-          (https://github.com/madame-president/mempool-api-terminal)
-        </a>
-      </li>
-      <li className="font-normal text-[16px] text-n-4 my-5">
-        This creates a folder named after the repository and downloads all files
-        and history to your local machine.
-        <img
-          src={clone2}
-          alt=""
-          className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
-        />
-      </li>
-      <li className="font-normal text-[16px] text-n-4 my-5">
-        Install dependencies pip install -r requirements.txt
-        <img
-          src={clone3}
-          alt=""
-          className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
-        />
-        This command installs all the libraries and tools specified in
-        requirements.txt.
-      </li>
-      <li className="font-normal text-[16px] text-n-4 my-5">
-        Run the program python run.py
-        <img
-          src={clone4}
-          alt=""
-          className={`w-full sm:w-full md:w-1/3 md:top-20 right-0 mb-5 mt-5`}
-        />
-      </li>
-    </ul>
-  </section>
-);
+const GetStarted = () => {
+  const [copied, setCopied] = useState(null);
+
+  const handleCopy = (code, index) => {
+    navigator.clipboard.writeText(code);
+    setCopied(index);
+    setTimeout(() => {
+      setCopied(null);
+    }, 5000);
+  };
+
+  return (
+    <section id="installing-the-application" className="mb-6 scroll-mt-32">
+      <h2 className="h2 flex items-center text-center justify-between text-gradient mb-4 hover: transition duration-300 transform hover:translate-y-[-4px]">
+        Installing the Application
+      </h2>
+      <h3 className="h3 flex items-center text-center justify-between text-gradient mb-4 hover: transition duration-300 transform hover:translate-y-[-4px]">
+        Setting up your Environment
+      </h3>
+      <h3 className="body mb-[2rem] text-n-3">
+        Downloading programming languages:
+      </h3>
+      <ul className="list-disc pl-6 mt-2 space-y-2">
+        <li className="font-normal text-[16px] text-n-4 my-5">
+          Install Python{" "}
+          <a
+            href="https://www.python.org/downloads/"
+            className="text-n-3 block break-all mb-3"
+          >
+            (https://www.python.org/downloads/)
+          </a>
+          <div className="w-full xl:w-1/3 lg:w-full sm:w-full md:w-full mb-5 mt-5">
+            <img
+              src={install_python}
+              alt=""
+              className="w-full h-auto border-2 border-blue-400 rounded-lg"
+            />
+          </div>
+        </li>
+        <li className="font-normal text-[16px] text-n-4 my-5">
+          Install Git{" "}
+          <a
+            href="https://git-scm.com/downloads"
+            className="text-n-3 block break-all mb-3"
+          >
+            (https://git-scm.com/downloads)
+          </a>
+          <img
+            src={install_git}
+            alt=""
+            className={`w-full xl:w-1/3 lg:w-full sm:w-full md:w-full md:top-20 right-0 mb-5 mt-5 border-2 border-blue-400 rounded-lg`}
+          />
+        </li>
+        <li className="font-normal text-[16px] text-n-4 my-5">
+          Install Github CLI{" "}
+          <a
+            href="https://cli.github.com/"
+            className="text-n-3 block break-all mb-3"
+          >
+            (https://cli.github.com/)
+          </a>
+          <img
+            src={install_github_cli}
+            alt=""
+            className={`w-full xl:w-1/3 lg:w-full sm:w-full md:w-full md:top-20 right-0 mb-5 mt-5 border-2 border-blue-400 rounded-lg`}
+          />
+        </li>
+      </ul>
+      <h3 className="body mb-[2rem] text-n-3">
+        Checking Python version install:
+      </h3>
+      <ul className="list-disc pl-6 mt-2 space-y-2">
+        <li className="font-normal text-[16px] text-n-4 my-5">
+          Open your terminal and type the command
+          <div className="relative w-full xl:w-1/3 lg:w-full sm:w-full md:w-full ">
+            <SyntaxHighlighter language="python" style={atomDark}>
+              python --version
+            </SyntaxHighlighter>
+            <button
+              onClick={() => handleCopy("python --version", 0)}
+              className="absolute top-3.5 right-2 p-2 rounded bg-gray-700 text-white hover:bg-gray-600 transition z-1"
+              aria-label="Copy code"
+            >
+              {copied === 0 ? (
+                <FiCheck className="w-3 h-3 text-blue-400" size={20} />
+              ) : (
+                <FiCopy className="w-3 h-3" size={20} />
+              )}
+            </button>
+          </div>
+          <img
+            src={check_python_version}
+            alt=""
+            className={`w-full xl:w-1/3 lg:w-full sm:w-full md:w-full md:top-20 right-0 mb-5 mt-5 border-2 border-blue-400 rounded-lg`}
+          />
+        </li>
+        <li className="font-normal text-[16px] text-n-4 my-5">
+          For Git, type the command
+          <div className="relative w-full xl:w-1/3 lg:w-full sm:w-full md:w-full ">
+            <SyntaxHighlighter language="python" style={atomDark}>
+              git --version
+            </SyntaxHighlighter>
+            <button
+              onClick={() => handleCopy("git --version", 1)}
+              className="absolute top-3.5 right-2 p-2 rounded bg-gray-700 text-white hover:bg-gray-600 transition z-1"
+              aria-label="Copy code"
+            >
+              {copied === 1 ? (
+                <FiCheck className="w-3 h-3 text-blue-400" size={20} />
+              ) : (
+                <FiCopy className="w-3 h-3" size={20} />
+              )}
+            </button>
+          </div>
+          <img
+            src={check_git_version}
+            alt=""
+            className={`w-full xl:w-1/3 lg:w-full sm:w-full md:w-full md:top-20 right-0 mb-5 mt-5 border-2 border-blue-400 rounded-lg`}
+          />
+        </li>
+      </ul>
+      <h3 className="body mb-[2rem] text-n-3">Cloning the repository</h3>
+      <ul className="list-disc pl-6 mt-2 space-y-2">
+        <li className="font-normal text-[16px] text-n-4 my-5">
+          Go to this website:{" "}
+          <a
+            href="https://github.com/madame-president/mempool-api-terminal"
+            className="text-n-3 block break-all mb-3"
+          >
+            (https://github.com/madame-president/mempool-api-terminal)
+          </a>
+          <p>{"Under Code > Github CLI > copy the command:"}</p>
+          <div className="relative w-60 xl:w-1/3 lg:w-full sm:w-full md:w-full ">
+            <SyntaxHighlighter language="python" style={atomDark}>
+              gh repo clone madame-president/mempool-api-terminal
+            </SyntaxHighlighter>
+            <button
+              onClick={() =>
+                handleCopy(
+                  "gh repo clone madame-president/mempool-api-terminal",
+                  2
+                )
+              }
+              className="absolute top-3.5 right-2 p-2 rounded bg-gray-700 text-white hover:bg-gray-600 transition z-1"
+              aria-label="Copy code"
+            >
+              {copied === 2 ? (
+                <FiCheck className="w-3 h-3 text-blue-400" size={20} />
+              ) : (
+                <FiCopy className="w-3 h-3" size={20} />
+              )}
+            </button>
+          </div>
+          <img
+            src={clone_repo}
+            alt=""
+            className={`w-full xl:w-1/3 lg:w-full sm:w-full md:w-full md:top-20 right-0 mb-5 mt-5 border-2 border-blue-400 rounded-lg`}
+          />
+        </li>
+        <li className="font-normal text-[16px] text-n-4 my-5">
+          Open your terminal and paste the command:
+          <img
+            src={clone_from_terminal}
+            alt=""
+            className={`w-full xl:w-1/3 lg:w-full sm:w-full md:w-full md:top-20 right-0 mb-5 mt-5 border-2 border-blue-400 rounded-lg`}
+          />
+        </li>
+        <li className="font-normal text-[16px] text-n-4 my-5">
+          Go to the repository directory. Type
+          <div className="relative w-full xl:w-1/3 lg:w-full sm:w-full md:w-full ">
+            <SyntaxHighlighter language="python" style={atomDark}>
+              cd mempool-api-terminal
+            </SyntaxHighlighter>
+            <button
+              onClick={() => handleCopy("cd mempool-api-terminal", 3)}
+              className="absolute top-3.5 right-2 p-2 rounded bg-gray-700 text-white hover:bg-gray-600 transition z-1"
+              aria-label="Copy code"
+            >
+              {copied === 3 ? (
+                <FiCheck className="w-3 h-3 text-blue-400" size={20} />
+              ) : (
+                <FiCopy className="w-3 h-3" size={20} />
+              )}
+            </button>
+          </div>
+        </li>
+        <li className="font-normal text-[16px] text-n-4 my-5">
+          Inside the directory, install dependencies typing the command{" "}
+          <div className="relative w-60 xl:w-1/3 lg:w-full sm:w-full md:w-full ">
+            <SyntaxHighlighter language="python" style={atomDark}>
+              pip install -r requirements.txt
+            </SyntaxHighlighter>
+            <button
+              onClick={() => handleCopy("pip install -r requirements.txt", 4)}
+              className="absolute top-3.5 right-2 p-2 rounded bg-gray-700 text-white hover:bg-gray-600 transition z-1"
+              aria-label="Copy code"
+            >
+              {copied === 4 ? (
+                <FiCheck className="w-3 h-3 text-blue-400" size={20} />
+              ) : (
+                <FiCopy className="w-3 h-3" size={20} />
+              )}
+            </button>
+          </div>
+          <img
+            src={install_dependencies}
+            alt=""
+            className={`w-full xl:w-1/3 lg:w-full sm:w-full md:w-full md:top-20 right-0 mb-5 mt-5 border-2 border-blue-400 rounded-lg`}
+          />
+        </li>
+        <li className="font-normal text-[16px] text-n-4 my-5">
+          To run the program, type{" "}
+          <div className="relative w-full xl:w-1/3 lg:w-full sm:w-full md:w-full ">
+            <SyntaxHighlighter language="python" style={atomDark}>
+              python run.py
+            </SyntaxHighlighter>
+            <button
+              onClick={() => handleCopy("python run.py", 5)}
+              className="absolute top-3.5 right-2 p-2 rounded bg-gray-700 text-white hover:bg-gray-600 transition z-1"
+              aria-label="Copy code"
+            >
+              {copied === 5 ? (
+                <FiCheck className="w-3 h-3 text-blue-400" size={20} />
+              ) : (
+                <FiCopy className="w-3 h-3" size={20} />
+              )}
+            </button>
+          </div>
+          and enter your Bitcoin address when prompted. The application will
+          store your .xlsx report in the same folder.
+          <img
+            src={running}
+            alt=""
+            className={`w-full xl:w-1/3 lg:w-full sm:w-full md:w-full md:top-20 right-0 mb-5 mt-5 border-2 border-blue-400 rounded-lg`}
+          />
+        </li>
+      </ul>
+    </section>
+  );
+};
 
 export default GetStarted;
