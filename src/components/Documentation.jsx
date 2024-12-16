@@ -8,7 +8,7 @@ import MempoolTerminal from "./MempoolTerminal";
 
 const Documentation = () => {
   return (
-    <div className="ml-1/4 p-8 xl:w-full md:w-full lg:w-1/2 ">
+    <div className="ml-1/6 p-8 xl:w-full xl:ml-0 lg:ml-10 md:w-full">
       <MempoolTerminal />
       <KeyFeatures />
       <PlatformArchitecture />
